@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "npm": "3.10.10",
-    "node": "6.10.0"
+    "npm": "6.4.1",
+    "node": "8.12.0"
   },
   "dependencies": {
     "react": "^16.5.2",
