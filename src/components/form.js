@@ -46,7 +46,7 @@ export default class DynamicForm extends React.Component {
                   type={type}
                   key={o.key}
                   name={o.name}
-                  checked=""
+                  checked={checked}
                   value={o.value}
                 />
                 <label key={"ll" + o.key}>{o.label}</label>
