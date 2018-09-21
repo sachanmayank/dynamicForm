@@ -37,7 +37,7 @@ export default class DynamicForm extends React.Component {
         );
         if (type == "radio") {
           input = m.options.map(o => {
-            let checked = o.value == value;
+            let checked = o.value;
             return (
               <React.Fragment key={"fr" + o.key}>
                 <input
