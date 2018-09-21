@@ -8,6 +8,10 @@ export default class DynamicForm extends React.Component {
     super(props);
   }
 
+  onSubmit(e) {
+    e.preventDefault();
+    alert("Form submitted successfully");
+  }
   renderForm = () => {
     let model = this.props.model;
     console.log("props", model);
@@ -52,6 +56,24 @@ export default class DynamicForm extends React.Component {
           input = <div className="form-group-radio">{input}</div>;
         }
         
+        if (type == "select") {
+          input = m.options.map(o => {
+            return (
+              <option
+                {...props}
+                className="form-input"
+                key={o.key}
+                value={o.value}
+              >
+                {o.label}
+              </option>
+            );
+          });
+
+          console.log("Select default: ", value);
+          input = <select value={value}>{input}</select>;
+        }
+        
         return (
           <div key={"g" + key} className="form-group">
             <label className="form-label" key={"l" + key} htmlFor={key}>
@@ -69,7 +91,7 @@ export default class DynamicForm extends React.Component {
     let title = this.props.title || "Registration Form";
 
     return (
-      <div className={this.props.className}>
+      <div className={this.props.className + " form-aligning"}>
         <h3 className="form-title">{title}</h3>
         <form
           className="dynamic-form"
